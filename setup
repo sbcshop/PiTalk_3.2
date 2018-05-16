@@ -17,4 +17,10 @@ sudo cp ./LCD-show/cmdline.txt /boot/
 sudo cp ./LCD-show/inittab /etc/
 echo "=> HDMI Module Copied"
 
-sudo reboot
+read -p "Would you like to reboot (y/n)? " response
+if [ "$response" = "y" ];then
+  echo "Reboot Now"
+  sudo reboot
+else
+  echo "Reboot Later.."
+ fi
