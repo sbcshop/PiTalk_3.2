@@ -2191,7 +2191,7 @@ class CallSettingFrame(tk.Frame):
 
     def check_status(self):
         """ Check status of call forwarding """
-        number = statusCallForwarding
+        number = phone.statusCallForwarding()
         if (number):
             self.forwardnumber.delete("0", "end")
             self.forwardnumber.insert("end",number)
@@ -2203,7 +2203,7 @@ class CallSettingFrame(tk.Frame):
         """ Disable call forwarding """
         label = tk.Label(self, text = "Disabled", bg = "yellow", fg = "black")
         label.grid(row = 3, column = 0)
-        phone.disableCallForwarding
+        phone.disableCallForwarding()
         self.forwardnumber.delete("0", "end")
         label.after(2000, label.grid_forget)
 
@@ -2211,7 +2211,7 @@ class CallSettingFrame(tk.Frame):
         """ Set call forwading """
         label = tk.Label(self)
         if int(self.forwardnumber.get()):
-            if phone.enableCallForwarding(int(self.forwardnumber.get())):
+            if phone.enableCallForwarding(self.forwardnumber.get()):
                 label.config(text = "Enabled", bg = "yellow", fg = "black")
                 label.grid(row = 3, column = 0)
                 label.after(2000, label.grid_forget)
