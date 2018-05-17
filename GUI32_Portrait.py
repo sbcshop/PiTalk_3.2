@@ -8,6 +8,7 @@ import datetime
 import math
 import calendar
 import logging
+from PIL import Image, ImageTk
 import subprocess
 import shlex
 import time
