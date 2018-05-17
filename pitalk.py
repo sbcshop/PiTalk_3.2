@@ -218,7 +218,7 @@ class PiTalk(SerialComm):
 
     def enableCallForwarding(self,number = 0):
         """ Enable Call forwaring to number """
-        if "CME ERROR" or "ERROR"in str(self.write("AT+CCFC=0,3,"+'"'+str(number)+'"')):
+        if "CME ERROR" in str(self.write("AT+CCFC=0,3,"+'"'+str(number)+'"')):
             return False
         else:
             return True
@@ -249,5 +249,5 @@ class PiTalk(SerialComm):
         coordinate_list.append(coordinates.group(2)) #lattitude
         coordinate_list.append(coordinates.group(1)) #longitude
         return coordinate_list
-######################
+###################################################################################################
 
